@@ -2,65 +2,81 @@ import { FormEvent, useState } from "react";
 
 import DefaultLayout from "@/layouts/default";
 
-const whatsappNumber = "1234567890"; // Replace with actual WhatsApp number when available
+const whatsappNumber = "6281234567890";
 const whatsappMessage =
-  "Hello, I'm interested in your tax services. Please help me with more details.";
+  "Halo, saya ingin berkonsultasi terkait layanan pajak dari LP Tax Consultant. Mohon informasinya.";
 
 const services = [
   {
-    title: "Tax Consultation",
+    title: "Konsultasi Pajak Pribadi",
     description:
-      "Work one-on-one with experienced tax specialists who tailor guidance to your personal or business needs.",
+      "Pendampingan untuk karyawan, profesional, hingga UMKM dalam menyusun strategi pajak yang optimal dan sesuai regulasi.",
   },
   {
-    title: "Tax Filing Service",
+    title: "Penyusunan & Pelaporan SPT",
     description:
-      "Let us prepare, review, and file your taxes with speed, accuracy, and complete peace of mind.",
+      "Tim kami memastikan seluruh dokumen pajak tersusun rapi, tepat waktu, dan meminimalkan risiko sanksi.",
   },
   {
-    title: "Compliance Reviews",
+    title: "Pendampingan Pemeriksaan Pajak",
     description:
-      "Stay ahead of changing regulations with proactive compliance audits and planning sessions.",
+      "Ahli pajak kami siap mewakili Anda dalam pemeriksaan, keberatan, hingga banding agar hak Anda tetap terlindungi.",
   },
 ];
 
 const advantages = [
-  "Trusted by thousands of clients",
-  "Experienced Tax Professionals",
-  "Affordable & Transparent Pricing",
-  "Quick & Secure Online Process",
+  {
+    title: "Pengalaman 10+ Tahun",
+    description:
+      "Konsultan berlisensi dengan pengalaman menangani berbagai sektor industri dan kebutuhan pajak yang kompleks.",
+  },
+  {
+    title: "Biaya Transparan",
+    description:
+      "Estimasi biaya yang jelas sejak awal tanpa biaya tersembunyi sehingga mudah disesuaikan dengan anggaran Anda.",
+  },
+  {
+    title: "Layanan Cepat & Aman",
+    description:
+      "Dokumen Anda dijaga kerahasiaannya dengan sistem keamanan berbasis cloud dan komunikasi real-time.",
+  },
+  {
+    title: "Pendampingan End-to-End",
+    description:
+      "Mulai dari konsultasi awal, penyusunan strategi, hingga implementasi kami mendampingi setiap langkah Anda.",
+  },
 ];
 
 const faqs = [
   {
-    question: "How quickly can I get started?",
+    question: "Seberapa cepat saya bisa mulai konsultasi?",
     answer:
-      "Book a consultation in minutes and receive personalized tax guidance within 24 hours.",
+      "Reservasi jadwal dalam hitungan menit dan tim kami akan menghubungi Anda maksimal 24 jam setelah formulir diterima.",
   },
   {
-    question: "Can you help with both personal and business taxes?",
+    question: "Apakah melayani pajak pribadi dan badan?",
     answer:
-      "Yes, our advisors support individuals, freelancers, and businesses of every size.",
+      "Ya. Kami menangani kebutuhan pajak individu, profesional, yayasan, hingga perusahaan skala besar.",
   },
   {
-    question: "Is the online process secure?",
+    question: "Bagaimana keamanan data saya?",
     answer:
-      "Absolutely—your financial data is encrypted end-to-end and handled by vetted professionals.",
+      "Semua dokumen terenkripsi dan hanya dapat diakses oleh konsultan yang menangani kasus Anda.",
   },
 ];
 
 const testimonials = [
   {
-    name: "Jordan M.",
-    role: "Small Business Owner",
+    name: "Rama A.",
+    role: "Direktur Keuangan Startup",
     quote:
-      "They handled every detail of my quarterly filings so I could focus on growing my company.",
+      "LP Tax membantu kami merapikan administrasi pajak sehingga perusahaan lebih fokus mengembangkan produk.",
   },
   {
-    name: "Priya S.",
-    role: "Freelance Designer",
+    name: "Nadia P.",
+    role: "Freelancer Kreatif",
     quote:
-      "Affordable, fast, and incredibly reassuring—my tax season has never been smoother.",
+      "Proses pelaporan jadi jauh lebih mudah dan saya tidak khawatir lagi saat musim SPT tahunan.",
   },
 ];
 
@@ -74,7 +90,7 @@ export default function IndexPage() {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const message = encodeURIComponent(
-      `Hello, I'm interested in your tax services.\n\nName: ${formState.name}\nEmail: ${formState.email}\nNeeds: ${formState.needs || "General Inquiry"}`,
+      `Halo, saya ingin berkonsultasi dengan LP Tax Consultant.\n\nNama: ${formState.name}\nEmail: ${formState.email}\nKebutuhan: ${formState.needs || "Konsultasi Pajak"}`,
     );
 
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
@@ -91,24 +107,22 @@ export default function IndexPage() {
                   aria-hidden
                   className="h-2 w-2 rounded-full bg-emerald-400"
                 />
-                Easily Handle Your Taxes with Us
+                Pendamping Pajak Andal untuk Bisnis & Individu
               </span>
               <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-                Simplify Your Tax Journey Today!
+                Urusan Pajak Lebih Mudah Bersama LP Tax Consultant
               </h1>
               <p className="max-w-xl text-lg text-slate-200">
-                Get personalized tax help, tailored to your needs. We make
-                filing painless for individuals and businesses alike—no jargon,
-                no stress.
+                Dapatkan strategi pajak yang tepat, transparan, dan sesuai
+                kebutuhan. Kami mendampingi Anda dari perencanaan hingga
+                pelaporan tanpa ribet.
               </p>
               <div className="flex flex-wrap items-center gap-4 text-sm text-slate-300">
                 <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 shadow-lg backdrop-blur transition hover:-translate-y-1 hover:shadow-xl">
-                  <p className="font-semibold text-white">
-                    [Your Business Name]
-                  </p>
-                  <p>www.yourwebsite.com</p>
-                  <p>contact@yourbusiness.com</p>
-                  <p>WhatsApp: +1 (234) 567-8901</p>
+                  <p className="font-semibold text-white">LP Tax Consultant</p>
+                  <p>www.lptax.id</p>
+                  <p>hello@lptax.id</p>
+                  <p>WhatsApp: +62 812-3456-7890</p>
                 </div>
                 <div className="flex flex-col gap-2">
                   <button
@@ -123,36 +137,37 @@ export default function IndexPage() {
                       )
                     }
                   >
-                    Chat with Us on WhatsApp
+                    Konsultasi Gratis via WhatsApp
                     <span aria-hidden className="text-lg">
                       →
                     </span>
                   </button>
                   <p className="text-xs text-slate-400">
-                    We respond in under 15 minutes during business hours.
+                    Respons cepat dalam 15 menit di jam kerja.
                   </p>
                 </div>
               </div>
               <div className="flex flex-wrap gap-4 text-xs uppercase tracking-wider text-slate-400">
                 <span className="rounded-full border border-white/10 px-4 py-2">
-                  Featured on Finance Today
+                  Terdaftar di IAPI & IKPI
                 </span>
                 <span className="rounded-full border border-white/10 px-4 py-2">
-                  Trusted by 1,200+ Clients
+                  Dipercaya 1.200+ Klien
                 </span>
                 <span className="rounded-full border border-white/10 px-4 py-2">
-                  Partnered with LedgerPro
+                  Mitra Resmi DJP Online
                 </span>
               </div>
             </div>
             <div className="flex-1">
               <div className="relative mx-auto max-w-md rounded-3xl bg-white/5 p-8 shadow-2xl ring-1 ring-white/10 backdrop-blur">
                 <h2 className="text-2xl font-semibold text-white">
-                  Fast, Reliable, and Affordable Tax Solutions
+                  Layanan Pajak Cepat, Andal, dan Terjangkau
                 </h2>
                 <p className="mt-3 text-sm text-slate-200">
-                  Explore our services and discover how our experts keep your
-                  taxes accurate, compliant, and stress-free all year round.
+                  Temukan layanan unggulan kami yang memastikan setiap kewajiban
+                  pajak dipenuhi tepat waktu dengan proses yang aman dan
+                  transparan.
                 </p>
                 <ul className="mt-6 space-y-4 text-sm text-slate-200">
                   {services.map((service) => (
@@ -178,18 +193,17 @@ export default function IndexPage() {
           <div className="grid gap-6 rounded-3xl bg-white p-10 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/10 lg:grid-cols-4">
             {advantages.map((advantage) => (
               <div
-                key={advantage}
+                key={advantage.title}
                 className="group rounded-2xl border border-transparent bg-slate-50 p-6 text-slate-900 transition hover:-translate-y-1 hover:border-emerald-400/60 hover:bg-white hover:shadow-xl"
               >
                 <div className="flex items-center gap-3 text-lg font-semibold">
                   <span className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 transition group-hover:scale-105">
                     ✓
                   </span>
-                  {advantage}
+                  {advantage.title}
                 </div>
                 <p className="mt-3 text-sm text-slate-600">
-                  Our team delivers consistent results backed by decades of
-                  combined experience and innovative digital tools.
+                  {advantage.description}
                 </p>
               </div>
             ))}
@@ -199,12 +213,11 @@ export default function IndexPage() {
         <section className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 lg:flex-row">
           <div className="flex-1 space-y-4">
             <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
-              Success Stories from Real Clients
+              Cerita Sukses Klien Kami
             </h2>
             <p className="text-base text-slate-600">
-              Discover how our tax experts have supported entrepreneurs,
-              freelancers, and families to maximize returns while staying
-              compliant.
+              Bagaimana kami membantu klien menjaga kepatuhan pajak sekaligus
+              mengoptimalkan cashflow bisnis mereka.
             </p>
             <div className="grid gap-4 sm:grid-cols-2">
               {testimonials.map((testimonial) => (
@@ -228,11 +241,11 @@ export default function IndexPage() {
           <div className="flex-1 space-y-6 rounded-3xl bg-slate-900 p-8 text-white shadow-2xl">
             <div className="space-y-2">
               <h3 className="text-2xl font-semibold">
-                Watch how we simplify taxes
+                Tonton cara kami menyederhanakan pajak Anda
               </h3>
               <p className="text-sm text-slate-200">
-                Share your success story or embed a short explainer video to
-                show clients what to expect when working with your team.
+                Bagikan video profil perusahaan atau testimoni klien untuk
+                menunjukkan proses kerja kami yang transparan dan terukur.
               </p>
             </div>
             <div className="flex aspect-video items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-sm text-slate-200">
@@ -240,11 +253,11 @@ export default function IndexPage() {
             </div>
             <div className="space-y-2 text-sm text-slate-200">
               <p className="font-semibold text-white">
-                Need expert advice now?
+                Butuh saran ahli sekarang?
               </p>
               <p>
-                Our certified professionals are ready to step in with actionable
-                insights, audit support, and year-round planning.
+                Konsultan bersertifikat kami siap memberikan insight strategis,
+                dukungan pemeriksaan, hingga perencanaan pajak tahunan.
               </p>
             </div>
             <button
@@ -257,7 +270,7 @@ export default function IndexPage() {
                 )
               }
             >
-              Chat with Us on WhatsApp
+              Hubungi Kami via WhatsApp
             </button>
           </div>
         </section>
@@ -265,11 +278,11 @@ export default function IndexPage() {
         <section className="mx-auto w-full max-w-5xl rounded-3xl bg-white px-6 py-16 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/10">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
-              Ready to Experience Stress-Free Taxes?
+              Siap Nikmati Pengelolaan Pajak Tanpa Stres?
             </h2>
             <p className="mt-4 text-base text-slate-600">
-              Send us a message and our team will reach out with tailored
-              solutions for your personal or business tax needs.
+              Kirimkan detail Anda dan kami akan menghubungi dengan solusi yang
+              disesuaikan untuk pajak pribadi maupun badan.
             </p>
           </div>
           <form
@@ -278,11 +291,11 @@ export default function IndexPage() {
           >
             <div className="grid gap-6 sm:grid-cols-2">
               <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
-                Name
+                Nama Lengkap
                 <input
                   required
                   className="rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 shadow-inner focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-100"
-                  placeholder="Your full name"
+                  placeholder="Masukkan nama Anda"
                   type="text"
                   value={formState.name}
                   onChange={(event) =>
@@ -298,7 +311,7 @@ export default function IndexPage() {
                 <input
                   required
                   className="rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 shadow-inner focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-100"
-                  placeholder="you@example.com"
+                  placeholder="nama@email.com"
                   type="email"
                   value={formState.email}
                   onChange={(event) =>
@@ -311,10 +324,10 @@ export default function IndexPage() {
               </label>
             </div>
             <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
-              What do you need help with?
+              Ceritakan kebutuhan Anda
               <textarea
                 className="min-h-[120px] rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 shadow-inner focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-100"
-                placeholder="Tell us about your tax situation"
+                placeholder="Contoh: Pendampingan SPT Tahunan Badan"
                 value={formState.needs}
                 onChange={(event) =>
                   setFormState((state) => ({
@@ -328,12 +341,12 @@ export default function IndexPage() {
               className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 py-3 text-base font-semibold text-white shadow-lg transition hover:-translate-y-1 hover:bg-emerald-400"
               type="submit"
             >
-              Chat with Us on WhatsApp
+              Kirim via WhatsApp
               <span aria-hidden>→</span>
             </button>
             <p className="text-center text-xs text-slate-500">
-              By clicking send, you&apos;ll be redirected to WhatsApp with your
-              information pre-filled.
+              Setelah klik kirim Anda akan diarahkan ke WhatsApp dengan data
+              terisi otomatis.
             </p>
           </form>
         </section>
@@ -341,7 +354,7 @@ export default function IndexPage() {
         <section className="mx-auto w-full max-w-6xl px-6">
           <div className="rounded-3xl bg-white px-8 py-12 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/10">
             <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
-              Frequently Asked Questions
+              Pertanyaan yang Sering Diajukan
             </h2>
             <div className="mt-8 space-y-6">
               {faqs.map((faq) => (
@@ -361,8 +374,8 @@ export default function IndexPage() {
 
         <footer className="mx-auto w-full max-w-6xl px-6 text-center text-sm text-slate-500">
           <p>
-            © {new Date().getFullYear()} [Your Business Name]. All rights
-            reserved. Crafted to help you take the stress out of tax season.
+            © {new Date().getFullYear()} LP Tax Consultant. Semua hak cipta
+            dilindungi. Kami hadir untuk menyederhanakan kewajiban pajak Anda.
           </p>
         </footer>
       </main>
