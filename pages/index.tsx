@@ -67,6 +67,47 @@ const faqs = [
   },
 ];
 
+const metrics = [
+  {
+    label: "Rasio Keberhasilan Sengketa",
+    value: "96%",
+    helper: "dengan pendekatan evidence-based",
+  },
+  {
+    label: "Waktu Respons Rata-rata",
+    value: "15 mnt",
+    helper: "melalui WhatsApp & email",
+  },
+  {
+    label: "Dokumen Tersimpan Aman",
+    value: "12k+",
+    helper: "terenkripsi dan ter-arsip",
+  },
+];
+
+const processSteps = [
+  {
+    title: "Discovery & Diagnosis",
+    detail:
+      "Kami memetakan kebutuhan pajak Anda melalui quick call dan audit dokumen singkat.",
+  },
+  {
+    title: "Strategi & Rencana Kerja",
+    detail:
+      "Menyusun action plan, timeline, serta estimasi biaya yang transparan.",
+  },
+  {
+    title: "Eksekusi & Monitoring",
+    detail:
+      "Pelaporan, review, dan reminder otomatis dengan laporan progres berkala.",
+  },
+  {
+    title: "Evaluasi & Optimalisasi",
+    detail:
+      "Analisis hasil serta peluang efisiensi pajak untuk periode berikutnya.",
+  },
+];
+
 const testimonials = [
   {
     name: "Rama A.",
@@ -89,6 +130,10 @@ export default function IndexPage() {
     needs: "",
   });
 
+  const [activeFaq, setActiveFaq] = useState<string | null>(
+    faqs[0]?.question ?? null,
+  );
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const message = encodeURIComponent(
@@ -102,6 +147,11 @@ export default function IndexPage() {
     <DefaultLayout>
       <main className="flex flex-col gap-24 pb-24">
         <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute left-[-10%] top-[-20%] h-72 w-72 rounded-full bg-emerald-500/10 blur-3xl" />
+            <div className="absolute right-[-10%] top-10 h-96 w-96 rounded-full bg-cyan-400/10 blur-3xl" />
+            <div className="absolute bottom-[-20%] left-1/3 h-80 w-80 rotate-12 rounded-full bg-amber-300/10 blur-3xl" />
+          </div>
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 py-24 lg:flex-row lg:items-center">
             <div className="flex-1 space-y-6">
               <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-sm font-medium tracking-wide">
@@ -188,6 +238,26 @@ export default function IndexPage() {
                 </ul>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="mx-auto w-full max-w-6xl px-6">
+          <div className="grid gap-4 rounded-3xl bg-slate-900 px-6 py-8 text-slate-50 shadow-2xl shadow-slate-900/20 ring-1 ring-white/10 sm:grid-cols-3">
+            {metrics.map((metric) => (
+              <div
+                key={metric.label}
+                className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/5 p-5 transition hover:-translate-y-1 hover:border-emerald-300/70 hover:bg-white/10"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/10 via-transparent to-cyan-300/5 opacity-0 transition duration-500 group-hover:opacity-100" />
+                <p className="text-sm uppercase tracking-wide text-emerald-200">
+                  {metric.label}
+                </p>
+                <p className="mt-2 text-4xl font-semibold text-white">
+                  {metric.value}
+                </p>
+                <p className="mt-2 text-sm text-slate-200">{metric.helper}</p>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -314,6 +384,98 @@ export default function IndexPage() {
           </div>
         </section>
 
+        <section className="mx-auto w-full max-w-6xl px-6">
+          <div className="overflow-hidden rounded-3xl bg-white p-10 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/10">
+            <div className="grid gap-8 lg:grid-cols-[1.2fr,1fr]">
+              <div className="space-y-4">
+                <p className="text-sm font-semibold uppercase tracking-widest text-emerald-500">
+                  Alur Kerja
+                </p>
+                <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
+                  Interaktif & transparan dari onboarding hingga laporan akhir
+                </h2>
+                <p className="text-base text-slate-600">
+                  Setiap tahap dilengkapi update otomatis, sehingga Anda bisa
+                  memantau progres tanpa harus menanyakan status berulang.
+                </p>
+                <div className="relative pl-4">
+                  <div className="absolute left-4 top-3 h-[calc(100%-24px)] w-px bg-gradient-to-b from-emerald-400 to-transparent" />
+                  <div className="space-y-5">
+                    {processSteps.map((step, index) => (
+                      <div
+                        key={step.title}
+                        className="relative rounded-2xl border border-slate-200 bg-slate-50/70 p-4 shadow-sm transition hover:-translate-y-1 hover:border-emerald-400/60 hover:bg-white"
+                      >
+                        <div className="absolute -left-7 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white text-sm font-semibold text-emerald-600 shadow-lg ring-1 ring-emerald-100">
+                          {index + 1}
+                        </div>
+                        <h3 className="text-lg font-semibold text-slate-900">
+                          {step.title}
+                        </h3>
+                        <p className="mt-2 text-sm text-slate-600">
+                          {step.detail}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="relative overflow-hidden rounded-3xl bg-slate-900 p-8 text-white shadow-xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-transparent to-cyan-400/20" />
+                <div className="relative space-y-4">
+                  <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-emerald-100">
+                    Dashboard Klien
+                  </p>
+                  <h3 className="text-2xl font-semibold">
+                    Notifikasi realtime & arsip digital
+                  </h3>
+                  <p className="text-sm text-slate-200">
+                    Setiap pengiriman dokumen dan tenggat akan muncul sebagai
+                    kartu status. Klik untuk membuka arsip terenkripsi atau
+                    kirim pesan cepat ke konsultan Anda.
+                  </p>
+                  <div className="space-y-3">
+                    {[
+                      "Reminder SPT Masa",
+                      "Upload Bukti Potong",
+                      "Jadwalkan Call",
+                    ].map((item) => (
+                      <div
+                        key={item}
+                        className="group flex items-center justify-between rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-sm shadow-inner transition hover:-translate-y-1 hover:border-emerald-300/60 hover:bg-white/10"
+                      >
+                        <div className="flex items-center gap-3">
+                          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-400/20 text-emerald-200">
+                            •
+                          </span>
+                          <span className="font-semibold text-white">
+                            {item}
+                          </span>
+                        </div>
+                        <button
+                          className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-emerald-100 transition group-hover:bg-emerald-400 group-hover:text-slate-900"
+                          type="button"
+                          onClick={() =>
+                            window.open(
+                              `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
+                              "_blank",
+                            )
+                          }
+                        >
+                          Tindaklanjuti
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-xs text-slate-300">
+                    Akses kapan saja tanpa harus menginstal aplikasi tambahan.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="mx-auto w-full max-w-6xl rounded-3xl bg-white px-6 py-16 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/10">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
@@ -397,15 +559,44 @@ export default function IndexPage() {
             </h2>
             <div className="mt-8 space-y-6">
               {faqs.map((faq) => (
-                <div
+                <button
                   key={faq.question}
-                  className="rounded-2xl border border-slate-200 bg-slate-50/80 p-6 transition hover:-translate-y-1 hover:border-emerald-400/60 hover:bg-white"
+                  aria-expanded={activeFaq === faq.question}
+                  className="flex w-full flex-col gap-2 rounded-2xl border border-slate-200 bg-slate-50/80 p-6 text-left transition hover:-translate-y-1 hover:border-emerald-400/60 hover:bg-white"
+                  type="button"
+                  onClick={() =>
+                    setActiveFaq((current) =>
+                      current === faq.question ? null : faq.question,
+                    )
+                  }
                 >
-                  <h3 className="text-lg font-semibold text-slate-900">
-                    {faq.question}
-                  </h3>
-                  <p className="mt-2 text-sm text-slate-600">{faq.answer}</p>
-                </div>
+                  <div className="flex items-center justify-between gap-4">
+                    <h3 className="text-lg font-semibold text-slate-900">
+                      {faq.question}
+                    </h3>
+                    <span
+                      aria-hidden
+                      className={`flex h-9 w-9 items-center justify-center rounded-full border text-sm font-semibold transition ${
+                        activeFaq === faq.question
+                          ? "rotate-45 border-emerald-300 bg-emerald-50 text-emerald-600"
+                          : "border-slate-200 bg-white text-slate-500"
+                      }`}
+                    >
+                      +
+                    </span>
+                  </div>
+                  <div
+                    className={`grid overflow-hidden text-sm text-slate-600 transition-[grid-template-rows] duration-300 ${
+                      activeFaq === faq.question
+                        ? "grid-rows-[1fr]"
+                        : "grid-rows-[0fr]"
+                    }`}
+                  >
+                    <p className="overflow-hidden leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </button>
               ))}
             </div>
           </div>
