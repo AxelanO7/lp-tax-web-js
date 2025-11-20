@@ -314,7 +314,7 @@ export default function IndexPage() {
           </div>
         </section>
 
-        <section className="mx-auto w-full max-w-5xl rounded-3xl bg-white px-6 py-16 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/10">
+        <section className="mx-auto w-full max-w-6xl rounded-3xl bg-white px-6 py-16 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/10">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
               Siap Nikmati Pengelolaan Pajak Tanpa Stres?
