@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FormEvent, useState } from "react";
 
 import PricingSection from "@/components/PricingSection";
@@ -242,26 +243,61 @@ export default function IndexPage() {
             </div>
           </div>
           <div className="flex-1 space-y-6 rounded-3xl bg-slate-900 p-8 text-white shadow-2xl">
-            <div className="space-y-2">
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-3 rounded-full bg-emerald-500/15 px-4 py-2 text-sm font-semibold text-emerald-200">
+                <span
+                  aria-hidden
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-400 text-slate-900"
+                >
+                  💼
+                </span>
+                Pajak Kita
+              </div>
               <h3 className="text-2xl font-semibold">
-                Tonton cara kami menyederhanakan pajak Anda
+                Pendampingan pajak dengan dokumentasi yang rapi
               </h3>
               <p className="text-sm text-slate-200">
-                Bagikan video profil perusahaan atau testimoni klien untuk
-                menunjukkan proses kerja kami yang transparan dan terukur.
+                Kami menjaga seluruh arsip pajak digital Anda, mulai dari bukti
+                potong hingga rekonsiliasi, lengkap dengan catatan progres yang
+                dapat diakses setiap saat.
               </p>
             </div>
-            <div className="flex aspect-video items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-sm text-slate-200">
-              Video Placeholder
-            </div>
-            <div className="space-y-2 text-sm text-slate-200">
+            <figure className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-inner">
+              <Image
+                alt="Tim konsultan pajak meninjau laporan keuangan di ruang meeting"
+                className="h-full w-full object-cover"
+                height={675}
+                src="/pajak-team.svg"
+                width={1200}
+              />
+            </figure>
+            <div className="space-y-3 text-sm text-slate-200">
               <p className="font-semibold text-white">
                 Butuh saran ahli sekarang?
               </p>
-              <p>
-                Konsultan bersertifikat kami siap memberikan insight strategis,
-                dukungan pemeriksaan, hingga perencanaan pajak tahunan.
-              </p>
+              <ul className="space-y-2 text-left">
+                <li className="flex items-start gap-2">
+                  <span
+                    aria-hidden
+                    className="mt-0.5 h-2 w-2 rounded-full bg-emerald-400"
+                  />
+                  Laporan konsistensi data pajak yang bisa diunduh kapan saja.
+                </li>
+                <li className="flex items-start gap-2">
+                  <span
+                    aria-hidden
+                    className="mt-0.5 h-2 w-2 rounded-full bg-emerald-400"
+                  />
+                  Reminder tenggat otomatis untuk SPT masa dan tahunan.
+                </li>
+                <li className="flex items-start gap-2">
+                  <span
+                    aria-hidden
+                    className="mt-0.5 h-2 w-2 rounded-full bg-emerald-400"
+                  />
+                  Konsultasi tatap muka maupun daring sesuai preferensi Anda.
+                </li>
+              </ul>
             </div>
             <button
               className="w-full rounded-full bg-emerald-400 px-6 py-3 text-base font-semibold text-slate-900 shadow-lg transition hover:-translate-y-1 hover:bg-emerald-300"
