@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 
+import PricingSection from "@/components/PricingSection";
 import DefaultLayout from "@/layouts/default";
 
 const whatsappNumber = "6281234567890";
@@ -188,6 +189,8 @@ export default function IndexPage() {
             </div>
           </div>
         </section>
+
+        <PricingSection />
 
         <section className="mx-auto w-full max-w-6xl px-6">
           <div className="grid gap-6 rounded-3xl bg-white p-10 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/10 lg:grid-cols-4">
