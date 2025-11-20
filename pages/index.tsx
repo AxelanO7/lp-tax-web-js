@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FormEvent, useState } from "react";
+import { FormEvent, ReactNode, useEffect, useRef, useState } from "react";
 
 import PricingSection from "@/components/PricingSection";
 import DefaultLayout from "@/layouts/default";
@@ -123,6 +123,56 @@ const testimonials = [
   },
 ];
 
+function AnimatedSection({
+  children,
+  className,
+  id,
+  delay = 0,
+}: {
+  children: ReactNode;
+  className?: string;
+  id?: string;
+  delay?: number;
+}) {
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const element = sectionRef.current;
+
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      className={`transition duration-700 ease-out ${
+        visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+      } ${className ?? ""}`}
+      id={id}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </section>
+  );
+}
+
 export default function IndexPage() {
   const [formState, setFormState] = useState({
     name: "",
@@ -131,13 +181,13 @@ export default function IndexPage() {
   });
 
   const [activeFaq, setActiveFaq] = useState<string | null>(
-    faqs[0]?.question ?? null,
+    faqs[0]?.question ?? null
   );
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const message = encodeURIComponent(
-      `Halo, saya ingin berkonsultasi dengan LP Tax Consultant.\n\nNama: ${formState.name}\nEmail: ${formState.email}\nKebutuhan: ${formState.needs || "Konsultasi Pajak"}`,
+      `Halo, saya ingin berkonsultasi dengan LP Tax Consultant.\n\nNama: ${formState.name}\nEmail: ${formState.email}\nKebutuhan: ${formState.needs || "Konsultasi Pajak"}`
     );
 
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
@@ -145,8 +195,11 @@ export default function IndexPage() {
 
   return (
     <DefaultLayout>
-      <main className="flex flex-col gap-24 pb-24">
-        <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+      <main className="flex flex-col gap-24 pb-24 scroll-smooth">
+        <AnimatedSection
+          className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white"
+          id="hero"
+        >
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute left-[-10%] top-[-20%] h-72 w-72 rounded-full bg-emerald-500/10 blur-3xl" />
             <div className="absolute right-[-10%] top-10 h-96 w-96 rounded-full bg-cyan-400/10 blur-3xl" />
@@ -183,9 +236,9 @@ export default function IndexPage() {
                     onClick={() =>
                       window.open(
                         `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                          whatsappMessage,
+                          whatsappMessage
                         )}`,
-                        "_blank",
+                        "_blank"
                       )
                     }
                   >
@@ -239,9 +292,9 @@ export default function IndexPage() {
               </div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
-        <section className="mx-auto w-full max-w-6xl px-6">
+        <AnimatedSection className="mx-auto w-full max-w-6xl px-6" delay={100}>
           <div className="grid gap-4 rounded-3xl bg-slate-900 px-6 py-8 text-slate-50 shadow-2xl shadow-slate-900/20 ring-1 ring-white/10 sm:grid-cols-3">
             {metrics.map((metric) => (
               <div
@@ -259,11 +312,13 @@ export default function IndexPage() {
               </div>
             ))}
           </div>
-        </section>
+        </AnimatedSection>
 
-        <PricingSection />
+        <AnimatedSection className="px-6" delay={150} id="pricing">
+          <PricingSection />
+        </AnimatedSection>
 
-        <section className="mx-auto w-full max-w-6xl px-6">
+        <AnimatedSection className="mx-auto w-full max-w-6xl px-6" delay={200}>
           <div className="grid gap-6 rounded-3xl bg-white p-10 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/10 lg:grid-cols-4">
             {advantages.map((advantage) => (
               <div
@@ -282,9 +337,12 @@ export default function IndexPage() {
               </div>
             ))}
           </div>
-        </section>
+        </AnimatedSection>
 
-        <section className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 lg:flex-row">
+        <AnimatedSection
+          className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 lg:flex-row"
+          delay={250}
+        >
           <div className="flex-1 space-y-4">
             <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
               Cerita Sukses Klien Kami
@@ -375,16 +433,16 @@ export default function IndexPage() {
               onClick={() =>
                 window.open(
                   `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
-                  "_blank",
+                  "_blank"
                 )
               }
             >
               Hubungi Kami via WhatsApp
             </button>
           </div>
-        </section>
+        </AnimatedSection>
 
-        <section className="mx-auto w-full max-w-6xl px-6">
+        <AnimatedSection className="mx-auto w-full max-w-6xl px-6" delay={300}>
           <div className="overflow-hidden rounded-3xl bg-white p-10 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/10">
             <div className="grid gap-8 lg:grid-cols-[1.2fr,1fr]">
               <div className="space-y-4">
@@ -458,7 +516,7 @@ export default function IndexPage() {
                           onClick={() =>
                             window.open(
                               `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
-                              "_blank",
+                              "_blank"
                             )
                           }
                         >
@@ -474,9 +532,13 @@ export default function IndexPage() {
               </div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
-        <section className="mx-auto w-full max-w-6xl rounded-3xl bg-white px-6 py-16 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/10">
+        <AnimatedSection
+          className="mx-auto w-full max-w-6xl rounded-3xl bg-white px-6 py-16 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/10"
+          delay={350}
+          id="contact"
+        >
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
               Siap Nikmati Pengelolaan Pajak Tanpa Stres?
@@ -550,9 +612,9 @@ export default function IndexPage() {
               terisi otomatis.
             </p>
           </form>
-        </section>
+        </AnimatedSection>
 
-        <section className="mx-auto w-full max-w-6xl px-6">
+        <AnimatedSection className="mx-auto w-full max-w-6xl px-6" delay={400}>
           <div className="rounded-3xl bg-white px-8 py-12 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/10">
             <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
               Pertanyaan yang Sering Diajukan
@@ -566,7 +628,7 @@ export default function IndexPage() {
                   type="button"
                   onClick={() =>
                     setActiveFaq((current) =>
-                      current === faq.question ? null : faq.question,
+                      current === faq.question ? null : faq.question
                     )
                   }
                 >
@@ -600,11 +662,11 @@ export default function IndexPage() {
               ))}
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
         <footer className="mx-auto w-full max-w-6xl px-6 text-center text-sm text-slate-500">
           <p>
-            © {new Date().getFullYear()} LP Tax Consultant. Semua hak cipta
+            © {new Date().getFullYear()} Pajak Kita Consultant. Semua hak cipta
             dilindungi. Kami hadir untuk menyederhanakan kewajiban pajak Anda.
           </p>
         </footer>
