@@ -43,14 +43,17 @@ export default function DefaultLayout({
             <p className="text-base font-semibold text-white">
               Pajakita Consultant
             </p>
-            <p>Jl. Merdeka No. 123, Jakarta</p>
-            <p>NPWP: 12.345.678.9-012.000</p>
+            <p>
+              Jalan Sunset Road No.89, Ruko Sunset Indah I No.Kav 1, Kuta,
+              Badung Regency, Bali 80361
+            </p>
+            {/* <p>NPWP: 12.345.678.9-012.000</p> */}
           </div>
           <div className="space-y-2 text-sm text-slate-400">
             <p className="font-semibold uppercase tracking-wider text-slate-200">
               Informasi Kontak
             </p>
-            <p>Telepon: (021) 1234-5678</p>
+            <p>Telepon: +62 812-3456-7890</p>
             <p>Email: free_corner200460@yahoo.com</p>
             <p>WhatsApp: +62 812-3456-7890</p>
           </div>
