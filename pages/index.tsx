@@ -151,7 +151,7 @@ function AnimatedSection({
           }
         });
       },
-      { threshold: 0.2 },
+      { threshold: 0.2 }
     );
 
     observer.observe(element);
@@ -181,13 +181,13 @@ export default function IndexPage() {
   });
 
   const [activeFaq, setActiveFaq] = useState<string | null>(
-    faqs[0]?.question ?? null,
+    faqs[0]?.question ?? null
   );
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const message = encodeURIComponent(
-      `Halo, saya ingin berkonsultasi dengan Pajakita Consultant.\n\nNama: ${formState.name}\nEmail: ${formState.email}\nKebutuhan: ${formState.needs || "Konsultasi Pajak"}`,
+      `Halo, saya ingin berkonsultasi dengan Pajakita Consultant.\n\nNama: ${formState.name}\nEmail: ${formState.email}\nKebutuhan: ${formState.needs || "Konsultasi Pajak"}`
     );
 
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
@@ -228,8 +228,8 @@ export default function IndexPage() {
                     Pajakita Consultant
                   </p>
                   <p>www.lptax.id</p>
-                  <p>hello@lptax.id</p>
-                  <p>WhatsApp: +62 812-3456-7890</p>
+                  <p>free_corner200460@yahoo.com</p>
+                  <p>WhatsApp: +62 811-7697-999</p>
                 </div>
                 <div className="flex flex-col gap-2">
                   <button
@@ -238,9 +238,9 @@ export default function IndexPage() {
                     onClick={() =>
                       window.open(
                         `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                          whatsappMessage,
+                          whatsappMessage
                         )}`,
-                        "_blank",
+                        "_blank"
                       )
                     }
                   >
@@ -435,7 +435,7 @@ export default function IndexPage() {
               onClick={() =>
                 window.open(
                   `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
-                  "_blank",
+                  "_blank"
                 )
               }
             >
@@ -518,7 +518,7 @@ export default function IndexPage() {
                           onClick={() =>
                             window.open(
                               `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
-                              "_blank",
+                              "_blank"
                             )
                           }
                         >
@@ -630,7 +630,7 @@ export default function IndexPage() {
                   type="button"
                   onClick={() =>
                     setActiveFaq((current) =>
-                      current === faq.question ? null : faq.question,
+                      current === faq.question ? null : faq.question
                     )
                   }
                 >
