@@ -254,7 +254,7 @@ export default function IndexPage() {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-wrap gap-4 text-xs uppercase tracking-wider text-slate-400">
+              {/* <div className="flex flex-wrap gap-4 text-xs uppercase tracking-wider text-slate-400">
                 <span className="rounded-full border border-white/10 px-4 py-2">
                   Terdaftar di IAPI & IKPI
                 </span>
@@ -264,7 +264,7 @@ export default function IndexPage() {
                 <span className="rounded-full border border-white/10 px-4 py-2">
                   Mitra Resmi DJP Online
                 </span>
-              </div>
+              </div> */}
             </div>
             <div className="flex-1">
               <div className="relative mx-auto max-w-md rounded-3xl bg-white/5 p-8 shadow-2xl ring-1 ring-white/10 backdrop-blur">
