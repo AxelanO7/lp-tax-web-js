@@ -4,7 +4,7 @@ import { FormEvent, ReactNode, useEffect, useRef, useState } from "react";
 import PricingSection from "@/components/PricingSection";
 import DefaultLayout from "@/layouts/default";
 
-const whatsappNumber = "6281234567890";
+const whatsappNumber = "628117697999";
 const whatsappMessage =
   "Halo, saya ingin berkonsultasi terkait layanan pajak dari Pajakita Consultant. Mohon informasinya.";
 
