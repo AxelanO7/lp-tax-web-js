@@ -21,9 +21,9 @@ export default function DefaultLayout({
           <div className="flex flex-wrap items-center gap-3 text-sm text-slate-300">
             <a
               className="inline-flex items-center justify-center rounded-full border border-emerald-400/50 px-5 py-2 font-medium text-emerald-300 transition hover:border-emerald-300 hover:text-white"
-              href="mailto:hello@lptax.id"
+              href="mailto:free_corner200460@yahoo.com"
             >
-              hello@lptax.id
+              free_corner200460@yahoo.com
             </a>
             <a
               className="inline-flex items-center justify-center rounded-full bg-emerald-400 px-5 py-2 font-semibold text-slate-900 shadow-lg transition hover:bg-emerald-300"
@@ -51,7 +51,7 @@ export default function DefaultLayout({
               Informasi Kontak
             </p>
             <p>Telepon: (021) 1234-5678</p>
-            <p>Email: hello@lptax.id</p>
+            <p>Email: free_corner200460@yahoo.com</p>
             <p>WhatsApp: +62 812-3456-7890</p>
           </div>
           <div className="space-y-3 text-sm text-slate-400">

@@ -227,7 +227,7 @@ export default function IndexPage() {
                   <p className="font-semibold text-white">
                     Pajakita Consultant
                   </p>
-                  <p>www.lptax.id</p>
+                  <p>www.pajakita.id</p>
                   <p>free_corner200460@yahoo.com</p>
                   <p>WhatsApp: +62 811-7697-999</p>
                 </div>
