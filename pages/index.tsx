@@ -215,7 +215,7 @@ export default function IndexPage() {
                 Pendamping Pajak Andal untuk Bisnis & Individu
               </span>
               <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-                Urusan Pajak Lebih Mudah Bersama LP Tax Consultant
+                Urusan Pajak Lebih Mudah Bersama Pajakita Consultant
               </h1>
               <p className="max-w-xl text-lg text-slate-200">
                 Dapatkan strategi pajak yang tepat, transparan, dan sesuai
