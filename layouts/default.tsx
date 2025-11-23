@@ -12,7 +12,7 @@ export default function DefaultLayout({
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-6 py-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-emerald-400">
-              LP Tax Consultant
+              Pajakita Consultant
             </p>
             <p className="text-xl font-semibold text-white sm:text-2xl">
               Solusi Pajak Profesional dan Terpercaya
@@ -41,7 +41,7 @@ export default function DefaultLayout({
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-12 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-2 text-sm text-slate-300">
             <p className="text-base font-semibold text-white">
-              LP Tax Consultant
+              Pajakita Consultant
             </p>
             <p>Jl. Merdeka No. 123, Jakarta</p>
             <p>NPWP: 12.345.678.9-012.000</p>

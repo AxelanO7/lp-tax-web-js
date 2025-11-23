@@ -152,7 +152,7 @@ const QuoteRequestForm = () => {
         ? selectedServices.map((service) => `• ${service}`).join("\n")
         : "Belum memilih layanan";
 
-    return `Halo LP Tax Consultant,\n\nNama: ${contact.name || "-"}\nEmail: ${
+    return `Halo Pajakita Consultant,\n\nNama: ${contact.name || "-"}\nEmail: ${
       contact.email || "-"
     }\nNo. Telepon: ${contact.phone || "-"}\n\nLayanan yang saya butuhkan:\n${
       servicesList || "-"
@@ -174,7 +174,7 @@ const QuoteRequestForm = () => {
       .map((service) => `* ${service}`)
       .join("\n");
 
-    const message = `Halo LP Tax Consultant,\n\nNama: ${contact.name}\nEmail: ${contact.email}\nNo. Telepon: ${contact.phone}\n\nLayanan yang saya butuhkan:\n\n${servicesList}\n\nPaket yang saya pilih: ${selectedPackage}`;
+    const message = `Halo Pajakita Consultant,\n\nNama: ${contact.name}\nEmail: ${contact.email}\nNo. Telepon: ${contact.phone}\n\nLayanan yang saya butuhkan:\n\n${servicesList}\n\nPaket yang saya pilih: ${selectedPackage}`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${ADMIN_WHATSAPP_NUMBER}?text=${encodedMessage}`;
@@ -193,7 +193,7 @@ const QuoteRequestForm = () => {
                 Solusi Pajak Profesional
               </p>
               <h1 className="mt-4 text-3xl font-semibold text-slate-50 sm:text-4xl">
-                Urusan Pajak Lebih Mudah Bersama LP Tax Consultant
+                Urusan Pajak Lebih Mudah Bersama Pajakita Consultant
               </h1>
               <p className="mt-4 text-base text-slate-300">
                 Pilih paket pendampingan pajak yang paling sesuai, isi data

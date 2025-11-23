@@ -6,7 +6,7 @@ import DefaultLayout from "@/layouts/default";
 
 const whatsappNumber = "6281234567890";
 const whatsappMessage =
-  "Halo, saya ingin berkonsultasi terkait layanan pajak dari LP Tax Consultant. Mohon informasinya.";
+  "Halo, saya ingin berkonsultasi terkait layanan pajak dari Pajakita Consultant. Mohon informasinya.";
 
 const services = [
   {
@@ -113,7 +113,7 @@ const testimonials = [
     name: "Rama A.",
     role: "Direktur Keuangan Startup",
     quote:
-      "LP Tax membantu kami merapikan administrasi pajak sehingga perusahaan lebih fokus mengembangkan produk.",
+      "Pajakita membantu kami merapikan administrasi pajak sehingga perusahaan lebih fokus mengembangkan produk.",
   },
   {
     name: "Nadia P.",
@@ -151,7 +151,7 @@ function AnimatedSection({
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     observer.observe(element);
@@ -181,13 +181,13 @@ export default function IndexPage() {
   });
 
   const [activeFaq, setActiveFaq] = useState<string | null>(
-    faqs[0]?.question ?? null
+    faqs[0]?.question ?? null,
   );
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const message = encodeURIComponent(
-      `Halo, saya ingin berkonsultasi dengan LP Tax Consultant.\n\nNama: ${formState.name}\nEmail: ${formState.email}\nKebutuhan: ${formState.needs || "Konsultasi Pajak"}`
+      `Halo, saya ingin berkonsultasi dengan Pajakita Consultant.\n\nNama: ${formState.name}\nEmail: ${formState.email}\nKebutuhan: ${formState.needs || "Konsultasi Pajak"}`,
     );
 
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
@@ -224,7 +224,9 @@ export default function IndexPage() {
               </p>
               <div className="flex flex-wrap items-center gap-4 text-sm text-slate-300">
                 <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 shadow-lg backdrop-blur transition hover:-translate-y-1 hover:shadow-xl">
-                  <p className="font-semibold text-white">LP Tax Consultant</p>
+                  <p className="font-semibold text-white">
+                    Pajakita Consultant
+                  </p>
                   <p>www.lptax.id</p>
                   <p>hello@lptax.id</p>
                   <p>WhatsApp: +62 812-3456-7890</p>
@@ -236,9 +238,9 @@ export default function IndexPage() {
                     onClick={() =>
                       window.open(
                         `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                          whatsappMessage
+                          whatsappMessage,
                         )}`,
-                        "_blank"
+                        "_blank",
                       )
                     }
                   >
@@ -433,7 +435,7 @@ export default function IndexPage() {
               onClick={() =>
                 window.open(
                   `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
-                  "_blank"
+                  "_blank",
                 )
               }
             >
@@ -516,7 +518,7 @@ export default function IndexPage() {
                           onClick={() =>
                             window.open(
                               `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
-                              "_blank"
+                              "_blank",
                             )
                           }
                         >
@@ -628,7 +630,7 @@ export default function IndexPage() {
                   type="button"
                   onClick={() =>
                     setActiveFaq((current) =>
-                      current === faq.question ? null : faq.question
+                      current === faq.question ? null : faq.question,
                     )
                   }
                 >
