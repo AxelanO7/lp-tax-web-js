@@ -8,7 +8,7 @@ interface PricingPackage {
   waMessageTemplate: string;
 }
 
-const WHATSAPP_NUMBER = "6281234567890";
+const WHATSAPP_NUMBER = "628117697999";
 
 const packages: PricingPackage[] = [
   {

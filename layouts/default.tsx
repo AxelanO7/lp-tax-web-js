@@ -27,7 +27,7 @@ export default function DefaultLayout({
             </a>
             <a
               className="inline-flex items-center justify-center rounded-full bg-emerald-400 px-5 py-2 font-semibold text-slate-900 shadow-lg transition hover:bg-emerald-300"
-              href="https://wa.me/6281234567890"
+              href="https://wa.me/628117697999"
               rel="noreferrer"
               target="_blank"
             >
@@ -53,9 +53,9 @@ export default function DefaultLayout({
             <p className="font-semibold uppercase tracking-wider text-slate-200">
               Informasi Kontak
             </p>
-            <p>Telepon: +62 812-3456-7890</p>
+            {/* <p>Telepon: +62 812-3456-7890</p> */}
             <p>Email: free_corner200460@yahoo.com</p>
-            <p>WhatsApp: +62 812-3456-7890</p>
+            {/* <p>WhatsApp: +62 812-3456-7890</p> */}
           </div>
           <div className="space-y-3 text-sm text-slate-400">
             <p className="font-semibold uppercase tracking-wider text-slate-200">
